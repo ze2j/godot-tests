@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3x2mhsr13b4j"]
+
+[ext_resource type="Shader" path="res://hint_normal_roughness_texture/main.gdshader" id="1_dna5o"]
+[ext_resource type="Texture2D" uid="uid://bg6pudet2b34n" path="res://icon.svg" id="1_ffj1b"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gpk83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xfwr0"]
+albedo_texture = ExtResource("1_ffj1b")
+roughness_texture = ExtResource("1_ffj1b")
+roughness_texture_channel = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_mgad8"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7i0dv"]
+render_priority = 0
+shader = ExtResource("1_dna5o")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("SphereMesh_gpk83")
+surface_material_override/0 = SubResource("StandardMaterial3D_xfwr0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.751287, -0.278542, 0.598316, 0, 0.906573, 0.422049, -0.659975, -0.31708, 0.681097, 0, -3.28961, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Quad" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.98013)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_mgad8")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_7i0dv")

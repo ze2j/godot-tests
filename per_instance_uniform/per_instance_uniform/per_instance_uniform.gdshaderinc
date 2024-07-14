@@ -1,0 +1,1 @@
+instance uniform vec4 my_color : source_color = vec4(1.0, 0.5, 0.0, 1.0);

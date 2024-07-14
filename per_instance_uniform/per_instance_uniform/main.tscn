@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://crqcy05xeosej"]
+
+[ext_resource type="Shader" path="res://per_instance_uniform/main.gdshader" id="1_dyyg3"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i2wwt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfyb6"]
+render_priority = 0
+shader = ExtResource("1_dyyg3")
+
+[node name="Main" type="Node3D"]
+
+[node name="MeshInstance3D_1" type="MeshInstance3D" parent="."]
+instance_shader_parameters/my_color = Color(0.911202, 0.485597, 0.790652, 1)
+mesh = SubResource("PlaneMesh_i2wwt")
+surface_material_override/0 = SubResource("ShaderMaterial_vfyb6")
+
+[node name="MeshInstance3D_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+instance_shader_parameters/my_color = Color(0.322544, 0.701541, 0.91762, 1)
+mesh = SubResource("PlaneMesh_i2wwt")
+surface_material_override/0 = SubResource("ShaderMaterial_vfyb6")

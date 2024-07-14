@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu4rxa26t6ib3"]
+
+[ext_resource type="Shader" path="res://hint_depth_texture/main.gdshader" id="1_4kutr"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_66rvp"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2di34"]
+render_priority = 0
+shader = ExtResource("1_4kutr")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0w1k3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtsqp"]
+albedo_color = Color(0.120116, 0.205265, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yosu7"]
+size = Vector2(10, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.893105, 0.449849, 0, -0.449849, 0.893105, 0, 2.63383, 4)
+
+[node name="Quad" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.06338)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_66rvp")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_2di34")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_0w1k3")
+surface_material_override/0 = SubResource("StandardMaterial3D_vtsqp")
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yosu7")

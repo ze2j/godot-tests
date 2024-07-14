@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgmqsgrl6pnrw"]
+
+[ext_resource type="Script" path="res://Basics/main.gd" id="1_34usk"]
+[ext_resource type="Shader" path="res://Basics/display.gdshader" id="2_avion"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_nc5tm"]
+size = Vector2(5, 5)
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_2mssp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j42hf"]
+render_priority = 0
+shader = ExtResource("2_avion")
+shader_parameter/tex = SubResource("Texture2DRD_2mssp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ntk6u"]
+size = Vector2(5, 5)
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_5cgyt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kn1t"]
+render_priority = 0
+shader = ExtResource("2_avion")
+shader_parameter/tex = SubResource("Texture2DRD_5cgyt")
+
+[node name="Basics" type="Node3D"]
+script = ExtResource("1_34usk")
+dst_texture_size = Vector2i(64, 64)
+src_region_size = Vector3i(128, 128, 0)
+dst_region_size = Vector3i(64, 64, 0)
+filter = 1
+
+[node name="Panel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Base" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, 0)
+mesh = SubResource("QuadMesh_nc5tm")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_j42hf")
+
+[node name="Blitted" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0, 0)
+mesh = SubResource("QuadMesh_ntk6u")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_3kn1t")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.83054)
+visible = false

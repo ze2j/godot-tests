@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://b66a5qn721mgc"
+path="res://.godot/imported/src_0.png-d5b60429a38d5fbb2ba5dec311e3a185.image"
+
+[deps]
+
+source_file="res://API Tests/TEXTURE_TYPE_2D_ARRAY/src_0.png"
+dest_files=["res://.godot/imported/src_0.png-d5b60429a38d5fbb2ba5dec311e3a185.image"]
+
+[params]
+

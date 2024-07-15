@@ -1,37 +1,36 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgmqsgrl6pnrw"]
 
-[ext_resource type="Script" path="res://API Tests/TEXTURE_TYPE_2D/texture_type_2d.gd" id="1_advtj"]
-[ext_resource type="Shader" path="res://API Tests/TEXTURE_TYPE_2D/texture_type_2d.gdshader" id="2_hl3gq"]
+[ext_resource type="Script" path="res://API Tests/TEXTURE_TYPE_2D/texture_type_2d.gd" id="1_5m1w6"]
+[ext_resource type="Shader" path="res://API Tests/TEXTURE_TYPE_2D/texture_type_2d.gdshader" id="2_0losb"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nc5tm"]
 size = Vector2(5, 5)
 
-[sub_resource type="Texture2DRD" id="Texture2DRD_n1bke"]
+[sub_resource type="Texture2DRD" id="Texture2DRD_2uean"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j42hf"]
 render_priority = 0
-shader = ExtResource("2_hl3gq")
-shader_parameter/lod = 0
-shader_parameter/tex = SubResource("Texture2DRD_n1bke")
+shader = ExtResource("2_0losb")
+shader_parameter/mipmap = 0
+shader_parameter/tex = SubResource("Texture2DRD_2uean")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ntk6u"]
 size = Vector2(5, 5)
 
-[sub_resource type="Texture2DRD" id="Texture2DRD_2uld4"]
+[sub_resource type="Texture2DRD" id="Texture2DRD_3wabe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3kn1t"]
 render_priority = 0
-shader = ExtResource("2_hl3gq")
-shader_parameter/lod = 2
-shader_parameter/tex = SubResource("Texture2DRD_2uld4")
+shader = ExtResource("2_0losb")
+shader_parameter/mipmap = 0
+shader_parameter/tex = SubResource("Texture2DRD_3wabe")
 
 [node name="TEXTURE_TYPE_2D" type="Node3D"]
-script = ExtResource("1_advtj")
-dst_texture_size = Vector2i(128, 128)
+script = ExtResource("1_5m1w6")
+dst_texture_size = Vector3i(64, 64, 0)
 src_region_size = Vector3i(128, 128, 0)
-dst_region_size = Vector3i(32, 32, 0)
+dst_region_size = Vector3i(64, 64, 0)
 filter = 1
-dst_mipmap = 2
 
 [node name="Panel" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
@@ -41,10 +40,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 0, 0)
 mesh = SubResource("QuadMesh_nc5tm")
 surface_material_override/0 = SubResource("ShaderMaterial_j42hf")
 
+[node name="Label3D" type="Label3D" parent="Panel/Src"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81748, -2.73886, 0)
+text = "Source mipmap"
+
 [node name="Dst" type="MeshInstance3D" parent="Panel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0, 0)
 mesh = SubResource("QuadMesh_ntk6u")
 surface_material_override/0 = SubResource("ShaderMaterial_3kn1t")
+
+[node name="Label3D2" type="Label3D" parent="Panel/Dst"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65975, -2.73886, 0)
+text = "Destination mipmap"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.83054)

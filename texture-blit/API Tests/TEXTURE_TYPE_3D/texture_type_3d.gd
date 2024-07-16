@@ -14,13 +14,13 @@ func _render() -> void:
 	for m in range(SRC_MIPMAPS + 1):
 		var depth_m: int = max(1, DEPTH / (2 ** m))
 		if depth_m == 1:
-			var img: Image = load("res://API Tests/TEXTURE_TYPE_3D/src_avg.png")
+			var img: Image = load("res://Assets/src_avg.png")
 			img.srgb_to_linear()
 			img.resize(img.get_width() / (2 ** m), img.get_height() / (2 ** m), Image.INTERPOLATE_BILINEAR)
 			src_data.append_array(img.get_data())
 		else:
 			for d in range(depth_m):
-				var img: Image = load("res://API Tests/TEXTURE_TYPE_3D/src_" + String.num_int64(d) + ".png")
+				var img: Image = load("res://Assets/src_" + String.num_int64(d) + ".png")
 				img.srgb_to_linear()
 				img.resize(img.get_width() / (2 ** m), img.get_height() / (2 ** m), Image.INTERPOLATE_BILINEAR)
 				src_data.append_array(img.get_data())

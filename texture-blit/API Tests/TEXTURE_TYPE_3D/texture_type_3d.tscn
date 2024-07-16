@@ -6,40 +6,40 @@
 [sub_resource type="QuadMesh" id="QuadMesh_7uoat"]
 size = Vector2(5, 5)
 
-[sub_resource type="Texture3DRD" id="Texture3DRD_5c5an"]
+[sub_resource type="Texture3DRD" id="Texture3DRD_7mn3y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gwyck"]
 render_priority = 0
 shader = ExtResource("2_x6kp8")
 shader_parameter/depth_slice = 0.0
 shader_parameter/mipmap = 0
-shader_parameter/tex = SubResource("Texture3DRD_5c5an")
+shader_parameter/tex = SubResource("Texture3DRD_7mn3y")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dvov4"]
 render_priority = 0
 shader = ExtResource("2_x6kp8")
 shader_parameter/depth_slice = 0.5
 shader_parameter/mipmap = 0
-shader_parameter/tex = SubResource("Texture3DRD_5c5an")
+shader_parameter/tex = SubResource("Texture3DRD_7mn3y")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6e6sv"]
 render_priority = 0
 shader = ExtResource("2_x6kp8")
 shader_parameter/depth_slice = 0.5
 shader_parameter/mipmap = 0
-shader_parameter/tex = SubResource("Texture3DRD_5c5an")
+shader_parameter/tex = SubResource("Texture3DRD_7mn3y")
 
 [sub_resource type="QuadMesh" id="QuadMesh_qcxoe"]
 size = Vector2(5, 5)
 
-[sub_resource type="Texture3DRD" id="Texture3DRD_6igai"]
+[sub_resource type="Texture3DRD" id="Texture3DRD_s7vlj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ycjv"]
 render_priority = 0
 shader = ExtResource("2_x6kp8")
 shader_parameter/depth_slice = 0.585
 shader_parameter/mipmap = 0
-shader_parameter/tex = SubResource("Texture3DRD_6igai")
+shader_parameter/tex = SubResource("Texture3DRD_s7vlj")
 
 [node name="TEXTURE_TYPE_3D" type="Node3D"]
 script = ExtResource("1_e7gmp")

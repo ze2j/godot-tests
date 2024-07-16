@@ -14,7 +14,7 @@ func _render() -> void:
 	var src_height := 0
 	var src_mipmaps := 0
 	for i in range(LAYERS):
-		var img: Image = load("res://API Tests/TEXTURE_TYPE_2D_ARRAY/src_" + String.num_int64(i) + ".png")
+		var img: Image = load("res://Assets/src_" + String.num_int64(i) + ".png")
 		img.generate_mipmaps()
 		img.srgb_to_linear()
 		src_data.push_back(img.get_data())

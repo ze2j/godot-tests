@@ -6,7 +6,7 @@ var _tex_dst: Texture2DRD = null
 
 func _render() -> void:
 	# Load a source image with mipmaps in RAM
-	var img: Image = load("res://API Tests/TEXTURE_TYPE_2D/src.png")
+	var img: Image = load("res://Assets/src.png")
 	img.generate_mipmaps()
 	img.srgb_to_linear()
 

@@ -6,28 +6,29 @@
 [sub_resource type="QuadMesh" id="QuadMesh_nc5tm"]
 size = Vector2(5, 5)
 
-[sub_resource type="Texture2DRD" id="Texture2DRD_2uean"]
+[sub_resource type="Texture2DRD" id="Texture2DRD_6otec"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j42hf"]
 render_priority = 0
 shader = ExtResource("2_0losb")
 shader_parameter/mipmap = 0
-shader_parameter/tex = SubResource("Texture2DRD_2uean")
+shader_parameter/tex = SubResource("Texture2DRD_6otec")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ntk6u"]
 size = Vector2(5, 5)
 
-[sub_resource type="Texture2DRD" id="Texture2DRD_3wabe"]
+[sub_resource type="Texture2DRD" id="Texture2DRD_o3x7w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3kn1t"]
 render_priority = 0
 shader = ExtResource("2_0losb")
 shader_parameter/mipmap = 0
-shader_parameter/tex = SubResource("Texture2DRD_3wabe")
+shader_parameter/tex = SubResource("Texture2DRD_o3x7w")
 
 [node name="TEXTURE_TYPE_2D" type="Node3D"]
 script = ExtResource("1_5m1w6")
 dst_texture_size = Vector3i(64, 64, 0)
+dst_sampled_slice = null
 src_region_size = Vector3i(128, 128, 0)
 dst_region_size = Vector3i(64, 64, 0)
 filter = 1

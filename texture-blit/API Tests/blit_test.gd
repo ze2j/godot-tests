@@ -1,6 +1,6 @@
 @tool
 extends Node3D
-class_name BlittingTest
+class_name BlitTest
 
 
 @export var dst_texture_size: Vector3i:
@@ -11,12 +11,12 @@ class_name BlittingTest
 			_dst_texture_size = value
 			_dirty = true
 
-@export var dst_depth_slice: float:
+@export_range(0, 1) var dst_sampled_slice: float:
 	get:
-		return _dst_depth_slice
+		return _dst_sampled_slice
 	set(value):
-		if value != _dst_depth_slice:
-			_dst_depth_slice = value
+		if value != _dst_sampled_slice:
+			_dst_sampled_slice = value
 			_dirty = true
 
 @export_group("Blit Arguments")
@@ -93,8 +93,10 @@ class_name BlittingTest
 			_dst_layer = value
 			_dirty = true
 
+var rd: RenderingDevice = null
+
 var _dst_texture_size := Vector3i(64, 64, 0)
-var _dst_depth_slice := 0.5
+var _dst_sampled_slice := 0.5
 
 var _src_region_from := Vector3i(0, 0, 0)
 var _src_region_size := Vector3i(128, 128, 0)
@@ -107,11 +109,9 @@ var _dst_layer := 0
 var _filter := RenderingDevice.SAMPLER_FILTER_LINEAR
 var _dirty := true
 
-var _rd: RenderingDevice = null
-
 
 func _ready() -> void:
-	_rd = RenderingServer.get_rendering_device()
+	rd = RenderingServer.get_rendering_device()
 
 func _exit_tree():
 	_cleanup()

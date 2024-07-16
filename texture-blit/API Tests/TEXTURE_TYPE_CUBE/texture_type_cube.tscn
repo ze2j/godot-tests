@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo6gjxdlfmjo5"]
+
+[ext_resource type="Script" path="res://API Tests/TEXTURE_TYPE_CUBE/texture_type_cube.gd" id="1_grkbd"]
+[ext_resource type="Shader" path="res://API Tests/TEXTURE_TYPE_CUBE/texture_type_cube.gdshader" id="2_1sri0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7gqh"]
+render_priority = 0
+shader = ExtResource("2_1sri0")
+shader_parameter/mipmap = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_rpklk"]
+material = SubResource("ShaderMaterial_j7gqh")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="TextureCubemapRD" id="TextureCubemapRD_hx8yi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gwyck"]
+render_priority = 0
+shader = ExtResource("2_1sri0")
+shader_parameter/mipmap = 0
+shader_parameter/tex = SubResource("TextureCubemapRD_hx8yi")
+
+[sub_resource type="BoxMesh" id="BoxMesh_1j5e6"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ycjv"]
+render_priority = 0
+shader = ExtResource("2_1sri0")
+shader_parameter/mipmap = 0
+
+[node name="TEXTURE_TYPE_CUBE" type="Node3D"]
+script = ExtResource("1_grkbd")
+dst_texture_size = Vector3i(64, 64, 0)
+dst_depth_slice = 0.5
+src_region_size = Vector3i(128, 128, 0)
+dst_region_size = Vector3i(64, 64, 0)
+filter = 1
+
+[node name="Panel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Src" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+mesh = SubResource("BoxMesh_rpklk")
+surface_material_override/0 = SubResource("ShaderMaterial_gwyck")
+
+[node name="Label3D" type="Label3D" parent="Panel/Src"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.722631, -1.25, 1)
+text = "Source"
+
+[node name="Dst" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+mesh = SubResource("BoxMesh_1j5e6")
+surface_material_override/0 = SubResource("ShaderMaterial_3ycjv")
+
+[node name="Label3D2" type="Label3D" parent="Panel/Dst"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.535, -1.25, 1)
+text = "Destination"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.861921, -0.154807, 0.482832, -3.72529e-09, 0.952252, 0.305313, -0.507042, -0.263156, 0.820766, 3.60857, 1.96738, 4)
+visible = false

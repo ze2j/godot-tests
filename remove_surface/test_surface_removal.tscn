@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8j45dkctase7"]
 
-[ext_resource type="Script" path="res://with_blend_shape.gd" id="1_n7m7n"]
-[ext_resource type="Script" path="res://without_blend_shape.gd" id="2_gpr7g"]
+[ext_resource type="Script" uid="uid://emsycfy4b57w" path="res://with_blend_shape.gd" id="1_n7m7n"]
+[ext_resource type="Script" uid="uid://btmxmd5xlqlus" path="res://without_blend_shape.gd" id="2_gpr7g"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_76yve"]
 

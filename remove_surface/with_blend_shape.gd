@@ -4,37 +4,50 @@ var rings = 10
 var radial_segments = 10
 
 func _ready():
-	#pass
 	mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
 
-	var bs1 := create_blend_shape(Vector3(0, -1, 0), 2)
+	# Create one surface with one blend shape
+	var bs1 := create_blend_shape(Vector3(0, 0, 0), 2)
 	mesh.add_blend_shape("bs1")
-	var s1 := create_surface_array(Vector3(0, -1, 0), 1)
+	var s1 := create_surface_array(Vector3(0, 0, 0), 1)
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, s1, [bs1])
+
+	# => A sphere with radius 1 is visible
 	set_blend_shape_value(0, 0)
-
 	await get_tree().create_timer(3.0).timeout
+
+	# => A sphere with radius 2 is visible
 	set_blend_shape_value(0, 1)
-
 	await get_tree().create_timer(3.0).timeout
+
+	# Remove the surface
+	# => Adding new blend shapes is possible now
 	mesh.surface_remove(0)
-	#mesh.clear_surfaces()
-
 	await get_tree().create_timer(3.0).timeout
-	var bs2 = create_blend_shape(Vector3(0, -1, 0), 3)
+
+	# Create one surface with two blend shapes
+	var bs2 = create_blend_shape(Vector3(0, 0, 0), 3)
 	mesh.add_blend_shape("bs2")
-	var s4 := create_surface_array(Vector3(0, -1, 0), 1)
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, s4, [bs1, bs2])
+	var s2 := create_surface_array(Vector3(0, 0, 0), 1)
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, s2, [bs1, bs2])
+
+	# => A sphere with radius 1 is visible
 	set_blend_shape_value(0, 0)
 	set_blend_shape_value(1, 0)
-
 	await get_tree().create_timer(3.0).timeout
+
+	# => A sphere with radius 2 is visible
 	set_blend_shape_value(0, 1)
 	set_blend_shape_value(1, 0)
-
 	await get_tree().create_timer(3.0).timeout
+
+	# => A sphere with radius 3 is visible
 	set_blend_shape_value(0, 0)
 	set_blend_shape_value(1, 1)
+	await get_tree().create_timer(3.0).timeout
+
+	# Remove the surface
+	mesh.surface_remove(0)
 
 
 func create_blend_shape(pos: Vector3, radius: float) -> Array:

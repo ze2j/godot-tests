@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c437x40uvek2h"]
+
+[ext_resource type="Script" uid="uid://emsycfy4b57w" path="res://with_blend_shape.gd" id="2_qqc27"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6uf4l"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WithBlendShape" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("ArrayMesh_6uf4l")
+script = ExtResource("2_qqc27")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.76164, 0.648, 0, -0.648, 0.76164, 0, 5, 0)

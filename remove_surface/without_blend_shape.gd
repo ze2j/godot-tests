@@ -1,9 +1,10 @@
 extends MeshInstance3D
 
-var rings = 10
-var radial_segments = 10
+const rings = 10
+const radial_segments = 10
 
 func _ready():
+	# Create 3 surfaces (3 spheres)
 	var s1 := create_surface_array(Vector3(-1, 0, 0), 1)
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, s1)
 
@@ -13,15 +14,14 @@ func _ready():
 	var s3 := create_surface_array(Vector3(1, 0, 0), 1)
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, s3)
 
+	# Remove the surfaces one by one
 	await get_tree().create_timer(3.0).timeout
-	remove_surface(0)
+	mesh.surface_remove(0)
 	await get_tree().create_timer(3.0).timeout
-	remove_surface(1)
+	mesh.surface_remove(1)
 	await get_tree().create_timer(3.0).timeout
-	remove_surface(0)
+	mesh.surface_remove(0)
 
-func remove_surface(index: int):
-	mesh.surface_remove(index)
 
 func create_surface_array(pos: Vector3, radius: float) -> Array:
 	var surface_array = []

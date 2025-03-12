@@ -1,0 +1,20 @@
+[configuration]
+
+entry_symbol = "gdexample_library_init"
+compatibility_minimum = "4.4"
+reloadable = true
+
+[libraries]
+linux.editor.x86_64 = "res://bin/libgdexample.linux.template_debug.dev.x86_64.so"
+linux.debug.x86_64 = "user://bin/libgdexample.linux.template_debug.dev.x86_64.so"
+linux.release.x86_64 = "user://bin/libgdexample.linux.template_release.x86_64.so"
+
+macos.editor = "res://bin/libgdexample.macos.template_debug.dev.framework"
+macos.debug = "user://bin/libgdexample.macos.template_debug.dev.framework"
+macos.release = "user://bin/libgdexample.macos.template_release.framework"
+
+windows.editor.x86_64 = "res://bin/libgdexample.windows.template_debug.dev.x86_64.dll"
+windows.debug.x86_64 = "user://bin/libgdexample.windows.template_debug.dev.x86_64.dll"
+windows.release.x86_64 = "user://bin/libgdexample.windows.template_release.x86_64.dll"
+
+[dependencies]

@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdwvunvwobkh2"]
+[gd_scene load_steps=3 format=3 uid="uid://dklqrqow4w1rg"]
 
 [ext_resource type="Texture2D" uid="uid://cbp7gbc55dboc" path="res://icon.svg" id="1_gk452"]
-[ext_resource type="Script" uid="uid://carxhhvpkfjnh" path="res://gdexample_as_child.gd" id="1_k245h"]
+[ext_resource type="Script" uid="uid://co3aes8mpeasq" path="res://gdexample_as_child.gd" id="1_k245h"]
 
 [node name="GDExampleAsChild" type="Node2D"]
-script = ExtResource("1_k245h")
 
 [node name="GDExample" type="GDExample" parent="."]
-position = Vector2(13.1901, 4.84246)
+position = Vector2(19.9584, 13.1864)
 texture = ExtResource("1_gk452")
 centered = false
+script = ExtResource("1_k245h")

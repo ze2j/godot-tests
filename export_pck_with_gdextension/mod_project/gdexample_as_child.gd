@@ -1,6 +1,6 @@
-extends Node2D
+extends GDExample
 
 func _ready() -> void:
 	print("[MOD] _ready")
-	$GDExample.amplitude = 100
-	$GDExample.speed = 10
+	self.amplitude = 100
+	self.speed = 10

@@ -48,7 +48,8 @@ func _ready() -> void:
 			return
 
 	_check_existence("GDExample")
-	load_new_scene.call_deferred("res://gdexample_inheritance.tscn")
+	#load_new_scene.call_deferred("res://gdexample_workaround.tscn")
+	load_new_scene.call_deferred("res://gdexample_as_root.tscn")
 	#load_new_scene.call_deferred("res://gdexample_as_child.tscn")
 
 

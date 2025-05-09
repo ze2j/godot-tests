@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cheekttwdwnvi"]
+
+[ext_resource type="Shader" path="res://new_shader.gdshader" id="1_eglip"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8f4l"]
+shader = ExtResource("1_eglip")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_g8f4l")
+offset_right = 550.0
+offset_bottom = 320.0
